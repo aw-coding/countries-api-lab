@@ -1,12 +1,12 @@
+import { find } from 'lodash';
 import Vue from 'vue';
 
 document.addEventListener('DOMContentLoaded', () => {
     new Vue({
       el: "#app",
       data: {
-          populationTotal: 0,
-        //   allCountries: fetch("https://restcountries.eu/rest/v2/all")
-        countries: []
+        countries: [],
+
 
       },
       mounted(){
@@ -30,6 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
             .then((data) => this.countries = data)
         },
 
- }})
+        findCountrySearchedFor: function (countrySearchedFor) {
+            return this.countries.filter((country) => {
+                return country.name === this.countrySearchedFor;
+            })
+        },
+
+
+ }
+
+})
 
 })
