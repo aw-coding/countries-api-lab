@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
       el: "#app",
       data: {
         countries: [],
+        countrySearchedFor :{
+            name:'default',
+            region: 'default flag'
+
+        },
+        favouriteCountries: [],
+        favouriteCountry: ''
 
 
       },
@@ -35,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return country.name === this.countrySearchedFor;
             })
         },
+
+        addToFavouriteCountries: function () {
+            this.favouriteCountries.push(favourite)
+        }
 
 
  }

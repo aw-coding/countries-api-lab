@@ -9,12 +9,31 @@
 <body>
     <div id="app">
         <h1> World population: {{totalPopulation}}</h1>
-        <!-- <input placeholder="Name" type="text" v-model="countrySearchedFor" /> 
+        <input placeholder="Name" type="text" v-model="countrySearchedFor" /> 
         <input type="submit" value="Submit Country Name"/>
-        <h2> {{ result }}</h2> -->
-        <!-- <select v-model="countrySearchedFor">
-            <option value="country-name", >{{country.name}}></option>
-        </select> -->
+
+        <select v-model="countrySearchedFor">
+            <option v-for="country in countries" :value="country">
+            {{country.name}}
+            </option>
+        </select>
+
+        <h2> Name: {{countrySearchedFor.name}}    Region:   {{countrySearchedFor.region}}</h2>
+
+        <select v-model="favouriteCountry">
+            <option v-for="country in countries" :value="country">
+            {{country.name}}
+            </option>
+            <button v-on:click="addToFavouriteCountries">Gimme those dogs!</button>
+
+        </select>
+
+        
+        <ul >
+            <li v-for="country in favouriteCountries" :value="country">
+                {country.name}
+            </li>
+        </ul>
 
     </div>
 
